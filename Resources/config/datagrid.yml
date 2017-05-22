@@ -1,0 +1,9 @@
+parameters:
+    pim_inner_variation.datagrid.product_variation.extension.action.type.duplicate_action.class: Made\Bundle\InnerVariationDuplicateBundle\Datagrid\ProductVariation\Extension\Action\Actions\VariationDuplicateAction
+
+services:
+    pim_inner_variation.datagrid.product_variation.extension.action.type.duplicate_action:
+          class: '%pim_inner_variation.datagrid.product_variation.extension.action.type.duplicate_action.class%'
+          scope: prototype
+          tags:
+              - { name: oro_datagrid.extension.action.type, type: variation-duplicate }

@@ -1,0 +1,15 @@
+config:
+    config:
+        pim/fetcher-registry:
+            fetchers:
+                productVariation:
+                    module: piminnervariation/fetcher/variation
+                    options:
+                        urls:
+                            get:    pim_enrich_product_rest_get
+                            create: pim_inner_variation_product_variation_rest_create
+                            duplicate: made_inner_variation_product_variation_rest_duplicate
+    paths:
+        oro/datagrid/variation-duplicate-action: madeinnervariationduplicate/js/product/tab/variation-duplicate-action
+        piminnervariation/tab/variation:         madeinnervariationduplicate/js/product/tab/variation
+        piminnervariation/fetcher/variation:     madeinnervariationduplicate/js/fetcher/variation-fetcher

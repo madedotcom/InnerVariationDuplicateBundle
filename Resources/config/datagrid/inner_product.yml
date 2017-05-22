@@ -1,0 +1,95 @@
+datagrid:
+    inner-product-grid:
+        options:
+            entityHint: inner-product
+        source:
+            acl_resource:      pim_enrich_product_index
+            type:              pim_datasource_product
+            entity:            '%pim_catalog.entity.product.class%'
+            repository_method: createDatagridQueryBuilder
+        columns:
+            enabled:
+                label:         Status
+                type:          twig
+                template:      PimDataGridBundle:Property:enabled.html.twig
+                frontend_type: html
+            completeness:
+                label:         Complete
+                type:          twig
+                data_name:     ratio
+                template:      PimDataGridBundle:Property:completeness.html.twig
+                frontend_type: html
+                selector:      product_completeness
+            created:
+                label:         Created At
+                type:          product_value_date
+                frontend_type: date
+            updated:
+                label:         Updated At
+                type:          product_value_date
+                frontend_type: date
+        properties:
+            id: ~
+            delete_link:
+                type: url
+                route: pim_enrich_product_rest_remove
+                params:
+                    - id
+        actions:
+            edit:
+                type:      variation-edit
+                label:     Edit attributes of the product
+                icon:      edit
+                rowAction: true
+            duplicate:
+                type:      variation-duplicate
+                label:     Duplicate variation
+                icon:      copy
+                rowAction: true
+            delete:
+                type:  delete
+                label: Delete the product variation
+                icon:  trash
+                link:  delete_link
+                acl_resource: pim_inner_variation_product_variation_remove
+        sorters:
+            # at least one sorter must be set so the configuration is valid. We took this one from product datagrid.
+            columns:
+                updated:
+                    data_name: updated
+                    sorter:    product_field
+            default:
+                updated: '%oro_datagrid.extension.orm_sorter.class%::DIRECTION_DESC'
+        filters:
+            columns:
+                enabled:
+                    type:      product_enabled
+                    ftype:     choice
+                    label:     Status
+                    data_name: enabled
+                    options:
+                        field_options:
+                            choices:
+                                1: Enabled
+                                0: Disabled
+                scope:
+                    type:      product_scope
+                    label:     Scope
+                    data_name: values.scope
+                    options:
+                        field_options:
+                            choices: '@pim_catalog.repository.channel->getLabelsIndexedByCode'
+                completeness:
+                    type:      product_completeness
+                    label:     Complete
+                    data_name: ratio
+                created:
+                    type:      product_date
+                    ftype:     date
+                    data_name: created
+                    label:     Created At
+                updated:
+                    type:      product_date
+                    ftype:     date
+                    data_name: updated
+                    label:     Updated At

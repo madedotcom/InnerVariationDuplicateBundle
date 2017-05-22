@@ -1,0 +1,6 @@
+made_inner_variation_product_variation_rest_duplicate:
+    path: /rest/{id}/duplicate
+    defaults: { _controller: pim_inner_variation.controller.rest.product_variation:duplicateVariationAction, _format: json }
+    requirements:
+            id: \d+
+    methods: [GET]

@@ -1,0 +1,18 @@
+parameters:
+    made_inner_variation_duplicate.controller.rest.product_variation.class: Made\Bundle\InnerVariationDuplicateBundle\Controller\Rest\ProductVariationController
+
+services:
+    pim_inner_variation.controller.rest.product_variation:
+        class: '%made_inner_variation_duplicate.controller.rest.product_variation.class%'
+        arguments:
+            - '@pim_catalog.repository.product'
+            - '@pim_internal_api_serializer'
+            - '@pim_catalog.updater.product_property_setter'
+            - '@pim_user.context.user'
+            - '@pim_catalog.filter.chained'
+            - '@pim_catalog.builder.product'
+            - '@pim_inner_variation.builder.product_variation'
+            - '@pim_catalog.saver.product'
+            - '@pim_enrich.filter.product_edit_data'
+            - '@validator'
+

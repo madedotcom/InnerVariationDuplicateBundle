@@ -1,0 +1,36 @@
+{
+    "name": "madedotcom/inner-variation-duplicate-bundle",
+    "description": "A small Symfony bundle on top of Akeneo InnerVariationBundle to duplicate variation products",
+    "type": "symfony-bundle",
+    "keywords": ["pim", "akeneo", "product", "variation", "duplicate"],
+    "repositories": {
+        "pimCommunityDev": {
+            "type": "vcs",
+            "url": "https://github.com/akeneo/pim-community-dev.git",
+            "branch": "master"
+        },
+        "enhancedConnector": {
+            "type": "vcs",
+            "url": "https://github.com/akeneo-labs/EnhancedConnectorBundle.git",
+            "branch": "master"
+        }
+    },
+    "require": {
+        "akeneo/pim-enterprise-dev": "~1.6.7",
+        "akeneo/pim-community-dev": "~1.6.7",
+        "akeneo/inner-variation-bundle": "~1.3",
+        "akeneo-labs/pim-enhanced-connector": "~1.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Made\\Bundle\\InnerVariationDuplicateBundle\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Adi Movileanu",
+            "email": "adrian.movileanu@made.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

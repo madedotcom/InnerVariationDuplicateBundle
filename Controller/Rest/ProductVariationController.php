@@ -14,6 +14,7 @@ class ProductVariationController extends BaseProductVariationController
     /**
      * @param int $id
      * @return JsonResponse
+     * @throws \Exception
      */
     public function duplicateVariationAction($id)
     {

@@ -27,7 +27,7 @@ Update repositories in composer.json
 
 Require the bundle with composer
 ```bash
-composer require "madedotcom/inner-variation-duplicate-bundle:v1.0"
+composer require "madedotcom/inner-variation-duplicate-bundle:^2.0"
 ```
 
 Then enable the bundle in the `app/AppKernel.php` file, in the `registerBundles` method:

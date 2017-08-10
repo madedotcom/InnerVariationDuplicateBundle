@@ -26,11 +26,5 @@
             "Made\\Bundle\\InnerVariationDuplicateBundle\\": ""
         }
     },
-    "authors": [
-        {
-            "name": "Adi Movileanu",
-            "email": "adrian.movileanu@made.com"
-        }
-    ],
     "minimum-stability": "dev"
 }
